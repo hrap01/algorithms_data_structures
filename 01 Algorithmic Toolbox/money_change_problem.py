@@ -9,7 +9,6 @@ def money_change(a: int) -> list:
                     a -= b
                 else:
                     break
-
     return change
 
 
