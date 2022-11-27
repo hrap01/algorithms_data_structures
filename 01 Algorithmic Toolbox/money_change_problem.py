@@ -9,7 +9,7 @@ def money_change(a: int) -> list:
                     a -= b
                 else:
                     break
-    return change
+    return len(change)
 
 
 if __name__ == '__main__':

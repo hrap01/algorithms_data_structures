@@ -4,6 +4,7 @@ from sys import stdin
 def min_refills(distance: int, tank: int, stops: list) -> int:
     tank_full = tank
     number_of_stops = 0
+    i = 0
     stops.append(distance)
     if not stops and (distance > tank):
         return -1
@@ -22,15 +23,17 @@ def min_refills(distance: int, tank: int, stops: list) -> int:
         while distance > 0:
             if distance <= tank:
                 return number_of_stops
-            for i in range(0, len(stops_distance)):
+            while i < len(stops_distance):
                 if tank > stops_distance[i]:
                     tank -= stops_distance[i]
                     distance -= stops_distance[i]
+                    if distance <= 0:
+                        return number_of_stops
                     i += 1
                 elif tank == stops_distance[i]:
                     tank -= stops_distance[i]
                     distance -= stops_distance[i]
-                    if distance == 0:
+                    if distance <= 0:
                         return number_of_stops
                     number_of_stops += 1
                     tank = tank_full
@@ -40,7 +43,9 @@ def min_refills(distance: int, tank: int, stops: list) -> int:
                     tank = tank_full
                     tank -= stops_distance[i]
                     distance -= stops_distance[i]
-                    i += 1
+                else:
+                    return number_of_stops
+    return number_of_stops
 
 
 
