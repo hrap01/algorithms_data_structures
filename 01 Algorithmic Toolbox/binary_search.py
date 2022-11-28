@@ -2,22 +2,27 @@ def binary_search_list(keys: list, query: list) -> list:
     return_list = []
     max_number = len(keys) - 1
     min_number = 0
+    mid_number = (min_number + max_number) // 2
     for q in query:
-        a = binary_search_number(query=query, q=q, min_number=min_number, max_number=max_number)
-        return_list.append(a)
+        def binary_search_number(keys: list, q: int, min_number: int, max_number: int, mid_number: int):
+            nonlocal return_list
+            if q < keys[min_number]:
+                return_list.append(-1)
+            elif q > keys[max_number]:
+                return_list.append(-1)
+            elif q == keys[mid_number]:
+                return_list.append(mid_number)
+            elif q < keys[mid_number]:
+                #max_number = mid_number
+                binary_search_number(keys, q, min_number, max_number, mid_number-1)
+            else:
+                #min_number = mid_number
+                binary_search_number(keys, q, min_number, max_number, mid_number+1)
+
+        binary_search_number(keys=keys, q=q, min_number=min_number, max_number=max_number, mid_number=mid_number)
     return return_list
 
 
-def binary_search_number(query: list, q: int, min_number: int, max_number: int):
-    mid_number = round((max_number - min_number) / 2)
-    if q == query[mid_number]:
-        return mid_number
-    elif q < mid_number:
-        mid_number -= 1
-        binary_search_number(query, q, min_number, max_number)
-    else:
-        mid_number += 1
-        binary_search_number(query, q, min_number, max_number)
 
 
 if __name__ == '__main__':
