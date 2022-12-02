@@ -25,7 +25,7 @@ def compute_operations(n):
                     sub_value = outcome_array[i - numbers_array[j]]
                     if sub_value < maxsize and (sub_value + 1) < outcome_array[i]:
                         outcome_array[i] = sub_value + 1
-    return outcome_array[-1]
+    return outcome_array
 
 
 if __name__ == '__main__':
