@@ -1,6 +1,3 @@
-from sys import maxsize
-
-
 def maximum_gold(capacity, weights):
     weights.reverse()
     weights_length = len(weights)
