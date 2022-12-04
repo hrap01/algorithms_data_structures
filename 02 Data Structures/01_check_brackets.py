@@ -13,25 +13,25 @@ def are_matching(left, right):
 
 def find_mismatch(text):
     opening_brackets_stack = deque()
-    #save_info_check
     for i, next in enumerate(text):
         save_info = Bracket(char=i+1, position=next)
 
         if next in "([{":
-            opening_brackets_stack.append(next)
+            opening_brackets_stack.append([i+1, next])
             pass
 
         if next in ")]}":
             if len(opening_brackets_stack) == 0:
                 return save_info[0]
             left = opening_brackets_stack.pop()
-            if are_matching(left, next):
+            if are_matching(left[1], next):
                 pass
             else:
                 return save_info[0]
 
     if opening_brackets_stack:
-        return save_info[0]
+        output = opening_brackets_stack.pop()
+        return output[0]
     else:
         return 'Success'
 
