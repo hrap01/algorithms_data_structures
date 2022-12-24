@@ -32,7 +32,7 @@ class TreeOrders:
                 result.append(self.key[current_id])
                 current_id = self.right[current_id]
             else:
-                return result
+                return (" ".join(str(x) for x in result))
 
     def preOrder(self):
         current_id = 0
@@ -48,7 +48,7 @@ class TreeOrders:
                 current_id = stack.pop()
                 current_id = self.right[current_id]
             else:
-                return result
+                return (" ".join(str(x) for x in result))
 
     def postOrder(self):
         stack1 = [0]
@@ -68,6 +68,8 @@ class TreeOrders:
 
         while stack2:
             result.append(stack2.pop())
+
+        return (" ".join(str(x) for x in result))
 
 
 def main():
