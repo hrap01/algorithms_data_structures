@@ -19,7 +19,7 @@ class TreeOrders:
       self.left[i] = b
       self.right[i] = c
 
-  def inOrder(self):
+  def in_order(self):
     current_id = 0
     stack = []
     result = []
@@ -58,7 +58,7 @@ class TreeOrders:
 def main():
   tree = TreeOrders()
   tree.read()
-  print(tree.inOrder())
+  print(tree.in_order())
 
 
 threading.Thread(target=main).start()
