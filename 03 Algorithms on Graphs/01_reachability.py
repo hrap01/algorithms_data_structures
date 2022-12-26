@@ -22,12 +22,7 @@ if __name__ == "__main__":
     nr_vertices = int(input1[0])
     nr_edges = int(input1[2])
     vertices_split = [(input().split()) for i in range(nr_edges)]
-    vertices_split = [[int(i[0]), int(i[1])] for i in vertices_split]
-    data = []
-    for i in vertices_split:
-        data.append(i[0])
-        data.append(i[1])
-    edges = list(zip(data[0:(2 * nr_edges):2], data[1:(2 * nr_edges):2]))
+    edges = [(int(i[0]), int(i[1])) for i in vertices_split]
     input2 = input()
     start = int(input2[0])
     stop = int(input2[2])
