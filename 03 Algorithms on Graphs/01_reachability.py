@@ -19,13 +19,11 @@ def reach(adj, x, y):
 
 if __name__ == "__main__":
     input1 = (input().split())
-    nr_vertices = int(input1[0])
-    nr_edges = int(input1[1])
+    nr_vertices, nr_edges = int(input1[0]), int(input1[1])
     vertices_split = [(input().split()) for i in range(nr_edges)]
     edges = [(int(i[0]), int(i[1])) for i in vertices_split]
     input2 = (input().split())
-    start = int(input2[0])
-    stop = int(input2[1])
+    start, stop = int(input2[0]), int(input2[1])
     adj = [[] for _ in range(nr_vertices)]
     start, stop = start - 1, stop - 1
     for (a, b) in edges:
