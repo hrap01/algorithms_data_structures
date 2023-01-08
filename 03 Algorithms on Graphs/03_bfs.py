@@ -1,3 +1,5 @@
+import sys
+
 def distance(adj, start, stop):
     distance_counting = [-1 for x in range(len(adj))]
     grey_value = [start]
@@ -9,7 +11,9 @@ def distance(adj, start, stop):
             if distance_counting[b] == -1:
                 grey_value.append(b)
                 distance_counting[b] = distance_counting[current_value] + 1
-
+            if distance_counting[stop] != -1:
+                print(distance_counting[stop])
+                sys.exit()
     return distance_counting[stop]
 
 
