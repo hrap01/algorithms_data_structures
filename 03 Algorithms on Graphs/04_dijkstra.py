@@ -21,7 +21,7 @@ def distance(adj, cost, start, stop):
             break
         visited[minimal] = True
 
-        i = 0  # magic variable
+        i = 0
         for u in adj[minimal]:
             if not visited[u] and value[u] > value[minimal] + cost[minimal][i]:
                 value[u] = value[minimal] + cost[minimal][i]
